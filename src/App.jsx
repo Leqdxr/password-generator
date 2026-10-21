@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -22,7 +22,11 @@ function App() {
       currentPassword += string[Math.floor(Math.random() * string.length)];
     }
     setPassword(currentPassword);
-  }, [passLength, hasNumbers, hasSpecialChar]);
+  }, [passLength, hasNumbers, hasSpecialChar, setPassword]);
+
+  useEffect(() => {
+    passwordGenerator()
+  }, [passwordGenerator])
 
   return (
     <>
