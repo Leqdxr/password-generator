@@ -7,5 +7,4 @@ A simple password generator built with React and Tailwind CSS that let's you gen
 
 *I am using niri with noctalia shell*
 
-<br>
 Color Scheme: [Catppuccin Mocha](https://catppuccin.com/palette/) <br>
