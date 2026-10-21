@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import "./App.css";
 
 function App() {
@@ -28,6 +28,14 @@ function App() {
     passwordGenerator()
   }, [passwordGenerator])
 
+  const passwordReference = useRef(null)
+
+  const copyClipboard = useCallback(() => {
+    // adds selection effect on the password field
+    passwordReference.current?.select()
+    window.navigator.clipboard.writeText(password)
+  }, [password])
+
   return (
     <>
       <div className="min-h-screen flex items-center justify-center bg-[#11111b]">
@@ -40,9 +48,13 @@ function App() {
               className="flex-1 rounded-l-lg bg-[#313244] px-4 py-3 text-[#cdd6f4] placeholder-[#6c7086] outline-none"
               placeholder="Password"
               readOnly
+              ref={passwordReference}
             />
 
-            <button className="cursor-pointer rounded-r-lg bg-[#eba0ac] px-6 font-medium text-[#11111b]">
+            <button
+              className="cursor-pointer rounded-r-lg bg-[#eba0ac] px-6 font-medium text-[#11111b]"
+              onClick={copyClipboard}
+            >
               Copy
             </button>
           </div>
