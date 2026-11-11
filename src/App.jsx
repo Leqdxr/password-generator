@@ -38,42 +38,42 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-[#11111b]">
-        <div className="w-full max-w-xl rounded-xl bg-[#1e1e2e] p-8 text-[#cdd6f4]">
-          <h1 className="mb-6 text-center text-2xl">Password Generator</h1>
-          <div className="flex">
+      <div className="min-h-screen flex items-center justify-center bg-[#dce0e8] px-4">
+        <div className="w-full max-w-md rounded-xl bg-[#eff1f5] p-8 shadow-sm shadow-[#bcc0cc]">
+          <h1 className="mb-6 text-center text-xl font-semibold text-[#4c4f69]">Password Generator</h1>
+          <div className="flex overflow-hidden rounded-lg border border-[#ccd0da]">
             <input
               type="text"
               value={password}
-              className="flex-1 rounded-l-lg bg-[#313244] px-4 py-3 text-[#cdd6f4] placeholder-[#6c7086] outline-none"
+              className="flex-1 bg-[#e6e9ef] px-4 py-2.5 text-sm text-[#4c4f69] placeholder-[#9ca0b0] outline-none font-mono"
               placeholder="Password"
               readOnly
               ref={passwordReference}
             />
 
             <button
-              className="cursor-pointer rounded-r-lg bg-[#eba0ac] px-6 font-medium text-[#11111b]"
+              className="cursor-pointer bg-[#8839ef] px-5 py-2.5 text-sm font-medium text-[#eff1f5] hover:bg-[#7c2fdb]"
               onClick={copyClipboard}
             >
               Copy
             </button>
           </div>
 
-            <div className="flex items-center gap-2">
+            <div className="mt-5 flex items-center gap-3">
               <input
                 type="range"
                 min={6}
                 max={16}
                 value={passLength}
-                className="cursor-pointer accent-[#eba0ac]"
+                className="flex-1 cursor-pointer"
                 onChange={(e) => {
                   setPassLength(e.target.value);
                 }}
               />
-              <label>Length: {passLength}</label>
+              <label className="text-sm font-medium text-[#6c6f85] tabular-nums">Length: {passLength}</label>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="mt-4 flex items-center gap-2.5">
               <input
                 type="checkbox"
                 defaultChecked={hasNumbers}
@@ -82,12 +82,12 @@ function App() {
                   setHasNumbers((prev) => !prev);
                 }}
                 id="numberCheck"
-                className="cursor-pointer accent-[#eba0ac]"
+                className="cursor-pointer"
               />
-              <label htmlFor="numberCheck">Numbers</label>
+              <label htmlFor="numberCheck" className="text-sm text-[#4c4f69] cursor-pointer select-none">Numbers</label>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="mt-3 flex items-center gap-2.5">
               <input
                 type="checkbox"
                 defaultChecked={hasSpecialChar}
@@ -96,9 +96,9 @@ function App() {
                   setHasSpecialChar((prev) => !prev);
                 }}
                 id="charCheck"
-                className="cursor-pointer accent-[#eba0ac]"
+                className="cursor-pointer"
               />
-              <label htmlFor="charCheck">Special Characters</label>
+              <label htmlFor="charCheck" className="text-sm text-[#4c4f69] cursor-pointer select-none">Special Characters</label>
             </div>
           </div>
         </div>
